@@ -35,10 +35,10 @@ for s in `cat \${code}/\$list`
             
 do
 #s=`echo $SUBJECT | egrep -o '[0-9]{8}'`
-CMD=\${code}/job/cmd1.trac.t${threads}.${s}
+CMD=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/FTO/code_fto/job/cmd1.trac.t${threads}.${s}
 rm -rf $CMD
 
-LOG=\${code}/job/log.cmd1.t${threads}.${s}
+LOG=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/FTO/code_fto/job/log.cmd1.t${threads}.${s}
 rm -rf $LOG
 
 #CMD_sub=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/HBN/code_hbn_alcf/job/cmd1_sub.trac.${s}
