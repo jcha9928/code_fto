@@ -52,7 +52,7 @@ SUBJECT=${s}
 cat<<EOC >$CMD
 #!/bin/bash
 source ~/.bashrc
-workingdir=\${data}/${s}/mrtrix
+workingdir=${data}/${s}/mrtrix
 mkdir -p \$workingdir
 rm -rf \$workingdir/*
 
