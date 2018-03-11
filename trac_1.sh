@@ -15,7 +15,7 @@ rm -rf $CMD_batch
 #######################################################################################################
 cat<<EOC >$CMD_batch
 #!/bin/bash
-#COBALT -t 04:00:00
+#COBALT -t 00:01:00
 #COBALT -n $N
 #COBALT --attrs mcdram=cache:numa=quad:ssds=required:ssd_size=100 
 #COBALT -A AD_Brain_Imaging
