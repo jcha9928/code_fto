@@ -2,7 +2,7 @@
 
 list=$1
 N=`wc ${1} | awk '{print $1}'`
-threads=64
+threads=128
 #threadsX2=$((${threads}*2))
 
 fto=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/FTO
@@ -31,14 +31,14 @@ EOC
 
 #######################################################################################################
 i=1
-for s in `cat ${code}/\$list`
+for s in `cat \${code}/\$list`
             
 do
 #s=`echo $SUBJECT | egrep -o '[0-9]{8}'`
-CMD=${code}/job/cmd1.trac.t${threads}.${s}
+CMD=\${code}/job/cmd1.trac.t${threads}.${s}
 rm -rf $CMD
 
-LOG=${code}/job/log.cmd1.t${threads}.${s}
+LOG=\${code}/job/log.cmd1.t${threads}.${s}
 rm -rf $LOG
 
 #CMD_sub=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/HBN/code_hbn_alcf/job/cmd1_sub.trac.${s}
