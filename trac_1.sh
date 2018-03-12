@@ -17,6 +17,7 @@ cat<<EOC >$CMD_batch
 #!/bin/bash
 #COBALT -t 01:00:00
 #COBALT -n $N
+#COBALT -q debug-cache-quad
 #COBALT --attrs mcdram=cache:numa=quad:ssds=required:ssd_size=40 
 #COBALT -A AD_Brain_Imaging
 #COBALT -M jiook.cha@nyspi.columbia.edu
