@@ -111,10 +111,13 @@ sleep 0.1
     time dwipreproc mr_dwi_denoised_gibbs.mif.gz mr_dwi_denoised_gibbs_preproc.mif.gz \
 	-pe_dir AP \
 	-rpe_none \
-	-eddy_options " --repol " \
-	-nthreads ${threads} \
+	-eddy_options " --niter=8 --fwhm=10,8,4,2,0,0,0,0 --repol \
+	 --mporder=6 --slspec=my_slspec.txt --s2v_niter=5 --s2v_lambda=1 --s2v_interp=trilinear "
+	 -nthreads ${threads} \
 	-nocleanup -force 
  
+ 
+--niter=8 --fwhm=10,8,4,2,0,0,0,0 --repol --out=eddy_corrected_data --mporder=6 --slspec=my_slspec.txt --s2v_niter=5 --s2v_lambda=1 --s2v_interp=trilinear 
  sleep 0.1
  
   #pigz --fast -b 1280 -f mr_dwi_denoised_gibbs_crop_preproc.mif
