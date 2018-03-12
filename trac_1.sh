@@ -2,7 +2,7 @@
 
 list=$1
 N=`wc ${1} | awk '{print $1}'`
-threads=256
+threads=128
 #threadsX2=$((${threads}*2))
 
 fto=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/FTO
