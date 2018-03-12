@@ -2,7 +2,7 @@
 
 list=$1
 N=`wc ${1} | awk '{print $1}'`
-threads=128
+threads=256
 #threadsX2=$((${threads}*2))
 
 fto=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/FTO
@@ -15,9 +15,9 @@ rm -rf $CMD_batch
 #######################################################################################################
 cat<<EOC >$CMD_batch
 #!/bin/bash
-#COBALT -t 04:00:00
+#COBALT -t 06:00:00
 #COBALT -n $N
-#COBALT --attrs mcdram=cache:numa=quad:ssds=required:ssd_size=20 
+#COBALT --attrs mcdram=cache:numa=quad:ssds=required:ssd_size=40 
 #COBALT -A AD_Brain_Imaging
 #COBALT -M jiook.cha@nyspi.columbia.edu
 #COBALT ATP_ENABLED=1
@@ -53,13 +53,13 @@ cat<<EOC >$CMD
 source ~/.bashrc
 workingdir=${data}/${s}/mrtrix
 mkdir -p \$workingdir
-rm -rf \$workingdir/*
+#rm -rf \$workingdir/*
 
 cd \$workingdir
-#mkdir -p /local/scratch/${s}
-#mkdir -p /local/scratch/${s}/dwi_mr
-#ssd=/local/scratch/${s}/dwi_mr
-#cd \$ssd
+
+mkdir -p /local/scratch/${s}
+mkdir -p /local/scratch/${s}/mrtrix
+
 echo current folder is \`pwd\`
 ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=$threads
 #%% 1. setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -406,7 +406,7 @@ dtifit -k mr_dwi_denoised_gibbs_preproc_biasCorr_upsample125.nii.gz -o dtifit \
             
 done
 #### COPY ALL THE FILES TO SCRATCH ####
-#cp -rfv ../dwi /lus/theta-fs0/projects/AD_Brain_Imaging/anal/HBN/fs/${s}/
+cp -rfv ../mrtrix /lus/theta-fs0/projects/AD_Brain_Imaging/anal/FTO/DTIdata/${s}/
 #######################################################################
 # pigz#
 #pigz --best -b 1280 -f -T -p ${threads} *mif
