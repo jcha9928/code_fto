@@ -56,10 +56,11 @@ workingdir=${data}/${s}/mrtrix
 mkdir -p \$workingdir
 #rm -rf \$workingdir/*
 
-cd \$workingdir
+#cd \$workingdir
 
 mkdir -p /local/scratch/${s}
 mkdir -p /local/scratch/${s}/mrtrix
+cd /local/scratch/${s}/mrtrix
 
 echo current folder is \`pwd\`
 ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=$threads
