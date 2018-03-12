@@ -65,9 +65,9 @@ cd /local/scratch/${s}/mrtrix
 echo current folder is \`pwd\`
 ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=$threads
 #%% 1. setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-cp -f ../dti.nii.gz ./dti.nii.gz
-cp -f ../dti.bval ./dti.bval
-cp -f ../dti.bvec ./dti.bvec
+cp -f ${data}/${s}//dti.nii.gz ./dti.nii.gz
+cp -f ${data}/${s}//dti.bval ./dti.bval
+cp -f ${data}/${s}//dti.bvec ./dti.bvec
 #%% 2. DWI processing2-converting nifti to mif%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 rm -rf *nii
 # 1. mrconvert
