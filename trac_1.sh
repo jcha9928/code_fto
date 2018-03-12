@@ -67,6 +67,7 @@ ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=$threads
 cp -f ${data}/${s}//dti.nii.gz ./dti.nii.gz
 cp -f ${data}/${s}//dti.bval ./dti.bval
 cp -f ${data}/${s}//dti.bvec ./dti.bvec
+OMP_NUM_THREADS=${threads}
 #%% 2. DWI processing2-converting nifti to mif%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 rm -rf *nii
 # 1. mrconvert
