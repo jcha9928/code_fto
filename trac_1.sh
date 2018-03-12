@@ -2,7 +2,7 @@
 
 list=$1
 N=`wc ${1} | awk '{print $1}'`
-threads=128
+threads=256
 #threadsX2=$((${threads}*2))
 
 fto=/lus/theta-fs0/projects/AD_Brain_Imaging/anal/FTO
@@ -15,7 +15,7 @@ rm -rf $CMD_batch
 #######################################################################################################
 cat<<EOC >$CMD_batch
 #!/bin/bash
-#COBALT -t 10:00:00
+#COBALT -t 01:00:00
 #COBALT -n $N
 #COBALT --attrs mcdram=cache:numa=quad:ssds=required:ssd_size=40 
 #COBALT -A AD_Brain_Imaging
@@ -111,13 +111,12 @@ sleep 0.1
 	-pe_dir AP \
 	-rpe_none \
 	-eddy_options " --niter=8 --fwhm=10,8,4,2,0,0,0,0 --repol \
-	 --mporder=6 --slspec=my_slspec.txt --s2v_niter=5 --s2v_lambda=1 --s2v_interp=trilinear "
-	 -nthreads ${threads} \
+	 --mporder=6 --slspec=my_slspec.txt --s2v_niter=5 --s2v_lambda=1 --s2v_interp=trilinear -v " \
+	-nthreads ${threads} \
 	-nocleanup -force 
  
  
---niter=8 --fwhm=10,8,4,2,0,0,0,0 --repol --out=eddy_corrected_data --mporder=6 --slspec=my_slspec.txt --s2v_niter=5 --s2v_lambda=1 --s2v_interp=trilinear 
- sleep 0.1
+
  
   #pigz --fast -b 1280 -f mr_dwi_denoised_gibbs_crop_preproc.mif
 ##########-readout_time 0.0691181 \#############??????????????????????????????\
