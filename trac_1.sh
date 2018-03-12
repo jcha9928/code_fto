@@ -110,7 +110,7 @@ sleep 0.1
     time dwipreproc mr_dwi_denoised_gibbs.mif.gz mr_dwi_denoised_gibbs_preproc.mif.gz \
 	-pe_dir AP \
 	-rpe_none \
-	-eddy_options " --niter=8 --fwhm=10,8,4,2,0,0,0,0 --repol -v " \
+	-eddy_options " --repol " \
 	-nthreads ${threads} \
 	-nocleanup -force 
  
